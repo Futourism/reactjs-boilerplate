@@ -1,0 +1,16 @@
+﻿@using System.Web.Optimization
+@{
+    Layout = "_MainLayout.cshtml";
+
+    var controllerName = @ViewContext.RouteData.Values["controller"];
+    var actionName = @ViewContext.RouteData.Values["action"];
+}
+
+@section Scripts
+{
+    @Scripts.Render("~/js/reactjs")
+    @Scripts.Render($"~/jsx/{controllerName}/{actionName}")
+    @Html.ReactInitJavaScript()
+}
+
+@RenderBody()
